@@ -1,0 +1,57 @@
+{
+    "name": "Control System",
+    "maps": [
+        {
+            "name": "Player",
+            "id": "1062e3c7-597f-44eb-8031-74e92bbeb898",
+            "actions": [
+                {
+                    "name": "Rotate",
+                    "type": "Value",
+                    "id": "3b8ee910-cccb-488f-afdc-edef7d6badbc",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "cf91e936-d2ee-409f-8db7-256e8bb564b1",
+                    "path": "<Gyroscope>/angularVelocity/x",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Mobile",
+                    "action": "Rotate",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9cadc89d-746d-45b5-a51d-9fbd0ac5301b",
+                    "path": "<Gyroscope>/angularVelocity/y",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Mobile",
+                    "action": "Rotate",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": [
+        {
+            "name": "Mobile",
+            "bindingGroup": "Mobile",
+            "devices": [
+                {
+                    "devicePath": "<Gyroscope>",
+                    "isOptional": false,
+                    "isOR": false
+                }
+            ]
+        }
+    ]
+}
