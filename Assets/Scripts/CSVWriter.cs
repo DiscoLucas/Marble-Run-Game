@@ -15,6 +15,8 @@ public class CSVWriter : MonoBehaviour
     
     [Tooltip("Amount of time that data will be recorded for, in seconds")]
     public int collectionTime = 5;
+    [Tooltip("Amount of time between each sample recorded, in miliseconds")]
+    public int collectionInterval = 20;
 
     [System.Serializable]
     public class Data
@@ -49,7 +51,9 @@ public class CSVWriter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        var xAxis = -Input.gyro.rotationRateUnbiased.x;
+        var yAxis = -Input.gyro.rotationRateUnbiased.y;
+        var zAxis = -Input.gyro.rotationRateUnbiased.z;
     }
 
     /// <summary>
@@ -70,11 +74,11 @@ public class CSVWriter : MonoBehaviour
             tw.WriteLine("name, xAxiz, yAxis, zAxis");
             tw.Close();
 
-            tw = new StreamWriter(filename, true);
 
             var startTime = DateTime.UtcNow;
-            while(DateTime.UtcNow - startTime < TimeSpan.FromSeconds(5))
+            while(DateTime.UtcNow - startTime < TimeSpan.FromSeconds(collectionTime))
             {
+            tw = new StreamWriter(filename, true);
                 for (int i = 0; i < myDataList.data.Length; i++)
                 {
                     tw.WriteLine(myDataList.data[i].name + "," +
@@ -85,9 +89,10 @@ public class CSVWriter : MonoBehaviour
                        -Input.gyro.rotationRateUnbiased.y + "," +
                        -Input.gyro.rotationRateUnbiased.z);
                 }
+                tw.Close();
+                System.Threading.Thread.Sleep(collectionInterval);
             }
             
-            tw.Close();
         }
     }
     protected void OnGUI()
@@ -98,5 +103,6 @@ public class CSVWriter : MonoBehaviour
         GUILayout.Label("input.gyro.attitude: " + Input.gyro.attitude);
         GUILayout.Label("iphone width/font: " + Screen.width + " : " + GUI.skin.label.fontSize);
     }
+ 
 
 }
