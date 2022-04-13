@@ -39,7 +39,11 @@ public class CSVWriter : MonoBehaviour
         Button btn = startButton.GetComponent<Button>();
         btn.onClick.AddListener(WriteCSV);
 
-        InputSystem.EnableDevice(UnityEngine.InputSystem.Gyroscope.current);
+        if (SystemInfo.supportsGyroscope)
+        {
+            Input.gyro.enabled = true;
+        }
+        //InputSystem.EnableDevice(UnityEngine.InputSystem.Gyroscope.current);
     }
 
     // Update is called once per frame
@@ -86,4 +90,13 @@ public class CSVWriter : MonoBehaviour
             tw.Close();
         }
     }
+    protected void OnGUI()
+    {
+        GUI.skin.label.fontSize = Screen.width / 40;
+
+        GUILayout.Label("Orientation: " + Screen.orientation);
+        GUILayout.Label("input.gyro.attitude: " + Input.gyro.attitude);
+        GUILayout.Label("iphone width/font: " + Screen.width + " : " + GUI.skin.label.fontSize);
+    }
+
 }

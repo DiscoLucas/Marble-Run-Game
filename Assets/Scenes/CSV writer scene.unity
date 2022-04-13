@@ -429,12 +429,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startButton: {fileID: 1564979119}
+  collectionTime: 5
   myDataList:
     data:
     - name: Gyro
-      xAxis: 0
-      yAxis: 0
-      zAxis: 0
 --- !u!4 &494888887
 Transform:
   m_ObjectHideFlags: 0
@@ -611,7 +609,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 11500000, guid: 33466f9d0fe4236489bb73a4fcbe12a3, type: 3}
         m_TargetAssemblyTypeName: 
         m_MethodName: 
         m_Mode: 1
