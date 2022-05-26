@@ -10,7 +10,7 @@ using UnityEngine.InputSystem;
 
 public class CSVWriter : MonoBehaviour
 {
-    string filename = "";
+    public string filename = "";
     public Button startButton;
     
     [Tooltip("Amount of time that data will be recorded for, in seconds")]
@@ -55,7 +55,15 @@ public class CSVWriter : MonoBehaviour
         var yAxis = -Input.gyro.rotationRateUnbiased.y;
         var zAxis = -Input.gyro.rotationRateUnbiased.z;
     }
+    /*
+    public void RecordGyroData()
+    {
+        for (int i = 0; i < data.Count; i++)
+        {
 
+        }
+    }
+    */
     /// <summary>
     /// Method for writing CSV file.
     /// Starts by checking if the list is less than 0, if it is, it adds a header.
