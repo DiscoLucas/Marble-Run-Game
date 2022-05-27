@@ -26,7 +26,11 @@ public class DataInput : MonoBehaviour
             startCollectionTime = collectionTime;
         }
     }
-
+    /// <summary>
+    /// When the UI button is clicked, isCollecting becomes true.
+    /// collectionTime is subtracted by time untill it reaches 0.
+    /// And then sends the data list to <see cref="CSVWriter"/>
+    /// </summary>
     void FixedUpdate()
     {
         if (isCollecting == true)
@@ -38,13 +42,12 @@ public class DataInput : MonoBehaviour
             }
             else
             {
-                collectionTime = startCollectionTime;
-                isCollecting = false;
-                CSVWriter.WriteCSV(dataInput);
-                dataInput.Clear();
+                collectionTime = startCollectionTime; // Resets the CollectionTime to it's initial value
+                isCollecting = false; // Stops the loop from collecting data
+                CSVWriter.WriteCSV(dataInput); // sends the list of data to the CSVwriter class
+                dataInput.Clear(); // Clears the list
             }
         }
-        //Debug.Log(Input.gyro.rotationRateUnbiased);
     }
 
     /// <summary>
@@ -59,7 +62,11 @@ public class DataInput : MonoBehaviour
 
         dataInput.Add(output);
     }
-
+    /// <summary>
+    /// Toggles isCollecting for button click.
+    /// When UI the button is clicked, the bool should become true when clicked.
+    /// FixedUpdate() runs its routine when true.
+    /// </summary>
     public void StartCollecting()
     {
         isCollecting = !isCollecting;
