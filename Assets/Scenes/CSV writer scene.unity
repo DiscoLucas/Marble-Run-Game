@@ -430,12 +430,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   filename: 
-  startButton: {fileID: 1564979119}
-  collectionTime: 5
-  collectionInterval: 20
-  myDataList:
-    data:
-    - name: Gyro
 --- !u!4 &494888887
 Transform:
   m_ObjectHideFlags: 0
@@ -463,7 +457,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dataInput: []
-  collectionTime: 5
+  collectionTime: 25
   isCollecting: 0
   startCollectionTime: 0
   CSVWriter: {fileID: 494888886}

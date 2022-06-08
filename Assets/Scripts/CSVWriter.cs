@@ -43,7 +43,7 @@ public class CSVWriter : MonoBehaviour
         if (input.Count > 0)
         {
             TextWriter tw = new StreamWriter(filename, false);
-            tw.WriteLine("xAxiz, yAxis, zAxis");
+            tw.WriteLine("xAxiz; yAxis; zAxis");
             
 
             for (int i = 0; i < input.Count; i++)

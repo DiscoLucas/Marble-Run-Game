@@ -58,7 +58,7 @@ public class DataInput : MonoBehaviour
         string x = Input.gyro.rotationRateUnbiased.x.ToString();
         string y = Input.gyro.rotationRateUnbiased.y.ToString();
         string z = Input.gyro.rotationRateUnbiased.z.ToString();
-        string output = x + "," + y + "," + z;
+        string output = x + ";" + y + ";" + z;
 
         dataInput.Add(output);
     }
